@@ -1,0 +1,11 @@
+{
+    "name": "xolens/pglarauser",
+    "description": "Laravel Users account, User's  Groups and Permission management package.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "Xolens",
+        "email": "xolens.official@gmail.com"
+    }],
+    "require": {}
+}
