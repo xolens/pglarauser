@@ -13,12 +13,12 @@
     "require": {
         "xolens/larautil-contract": "1.0.0",
         "xolens/pglarautil": "1.0.0",
-        "xolens/larauser-contract": "dev-master",
+        "xolens/larauser-contract": "1.0.0",
         "xolens/pglarasetting": "1.0.0"
     },
     "repositories": [{
-        "type": "path",
-        "url": "/var/www/repositories/xolens.laravel/local/larauser-contract"
+        "type": "git",
+        "url": "https://github.com/xolens/larauser-contract"
     }, {
         "type": "git",
         "url": "https://github.com/xolens/larautil-contract"
