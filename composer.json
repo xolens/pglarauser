@@ -7,5 +7,38 @@
         "name": "Xolens",
         "email": "xolens.official@gmail.com"
     }],
-    "require": {}
+    "require-dev": {
+        "orchestra/testbench": "~3.4.0"
+    },
+    "require": {
+        "xolens/larautil-contract": "1.0.0",
+        "xolens/pglarautil": "1.0.0",
+        "xolens/larauser-contract": "dev-master",
+        "xolens/pglarasetting": "1.0.0"
+    },
+    "repositories": [{
+        "type": "path",
+        "url": "/var/www/repositories/xolens.laravel/local/larauser-contract"
+    }, {
+        "type": "git",
+        "url": "https://github.com/xolens/larautil-contract"
+    }, {
+        "type": "git",
+        "url": "https://github.com/xolens/pglarautil"
+    }, {
+        "type": "git",
+        "url": "https://github.com/xolens/pglarasetting"
+    }],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Xolens\\PgLarauser\\PgLarauserServiceProvider"
+            ]
+        }
+    }
 }

@@ -1,0 +1,26 @@
+<?php
+
+namespace Xolens\PgLarauser\App\Repository;
+
+use Xolens\PgLarauser\App\Model\ProfileAccessView;
+use Xolens\LarauserContract\App\Repository\Contract\ProfileAccessViewRepositoryContract;
+use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
+
+class ProfileAccessViewRepository extends AbstractReadableRepository implements ProfileAccessViewRepositoryContract
+{
+    public function model(){
+        return ProfileAccessView::class;
+    }
+    
+    public function paginateByProfile($parentId, $perPage=50, $page = null,  $columns = ['*'], $pageName = 'page'){
+        $parentFilterer = new Filterer();
+        $parentFilterer->equals(ProfileAccessView::PROFILE_PROPERTY, $parentId);
+        return $this->paginateFiltered($parentFilterer, $perPage, $page,  $columns, $pageName);
+    }
+
+    public function getByProfile($parentId, $columns = ['*']){
+        $model = $this->model();
+        $response = $model::where(ProfileAccessView::PROFILE_PROPERTY ,$parentId)->select($columns)->get();
+        return $this->returnResponse();
+    }
+}
