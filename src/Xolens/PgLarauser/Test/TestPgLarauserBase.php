@@ -2,7 +2,7 @@
 
 namespace Xolens\PgLarauser\Test;
 
-use \Orchestra\Testbench\TestCase;
+use Xolens\PgLarautil\Test\TestCase;
 use Xolens\PgLarautil\Test\RepositoryTrait\WritableRepositoryTestTrait;
 use Xolens\PgLarautil\Test\RepositoryTrait\ReadableRepositoryTestTrait;
 
