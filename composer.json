@@ -11,23 +11,15 @@
         "orchestra/testbench": "~3.4.0"
     },
     "require": {
-        "xolens/larautil-contract": "1.0.0",
-        "xolens/pglarautil": "1.0.0",
-        "xolens/larauser-contract": "1.0.0",
-        "xolens/pglarasetting": "1.0.0"
+        "xolens/larautil-contract": "dev-master",
+        "xolens/pglarautil": "dev-master",
+        "xolens/larauser-contract": "dev-master",
+        "xolens/larasetting-contract": "dev-master",
+        "xolens/pglarasetting": "dev-master"
     },
     "repositories": [{
-        "type": "git",
-        "url": "https://github.com/xolens/larauser-contract"
-    }, {
-        "type": "git",
-        "url": "https://github.com/xolens/larautil-contract"
-    }, {
-        "type": "git",
-        "url": "https://github.com/xolens/pglarautil"
-    }, {
-        "type": "git",
-        "url": "https://github.com/xolens/pglarasetting"
+        "type": "path",
+        "url": "/var/www/repositories/xolens.laravel/local/*"
     }],
     "autoload": {
         "classmap": [
