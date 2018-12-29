@@ -3,7 +3,7 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\ProfileAccess;
-use Xolens\LarauserContract\App\Repository\Contract\ProfileAccessRepositoryContract;
+use Xolens\LarauserContract\App\Contract\Repository\ProfileAccessRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;

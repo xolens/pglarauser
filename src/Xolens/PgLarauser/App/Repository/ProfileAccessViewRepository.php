@@ -3,7 +3,7 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\ProfileAccessView;
-use Xolens\LarauserContract\App\Repository\Contract\ProfileAccessViewRepositoryContract;
+use Xolens\LarauserContract\App\Contract\Repository\ProfileAccessViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
 
 class ProfileAccessViewRepository extends AbstractReadableRepository implements ProfileAccessViewRepositoryContract

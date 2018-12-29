@@ -3,7 +3,7 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\LoginHistory;
-use Xolens\LarauserContract\App\Repository\Contract\LoginHistoryRepositoryContract;
+use Xolens\LarauserContract\App\Contract\Repository\LoginHistoryRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 
 class LoginHistoryRepository extends AbstractWritableRepository implements LoginHistoryRepositoryContract

@@ -3,7 +3,7 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\Group;
-use Xolens\LarauserContract\App\Repository\Contract\GroupRepositoryContract;
+use Xolens\LarauserContract\App\Contract\Repository\GroupRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 
 class GroupRepository extends AbstractWritableRepository implements GroupRepositoryContract

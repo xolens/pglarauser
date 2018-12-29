@@ -3,7 +3,7 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\PasswordReset;
-use Xolens\LarauserContract\App\Repository\Contract\PasswordResetRepositoryContract;
+use Xolens\LarauserContract\App\Contract\Repository\PasswordResetRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 
 class PasswordResetRepository extends AbstractWritableRepository implements PasswordResetRepositoryContract

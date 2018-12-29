@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use Xolens\PgLarauser\App\Model\User;
-use Xolens\LarauserContract\App\Repository\Contract\UserRepositoryContract;
+use Xolens\LarauserContract\App\Contract\Repository\UserRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 
 class UserRepository extends AbstractWritableRepository implements UserRepositoryContract

@@ -12,7 +12,6 @@ class User extends Authenticatable
     use Notifiable;
 
     public const GROUP_PROPERTY = 'group_id';
-    public const LOGIN_PROPERTY = 'login';
     public const EMAIL_PROPERTY = 'email';
     public const PASSWORD_PROPERTY = 'password';
     public const STATE_PROPERTY = 'state';
@@ -29,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id','name','login', 'email', 'password','state','group_id'
+        'id','name', 'email', 'password','state','group_id'
     ];
 
     /**
