@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+
 use Xolens\PgLarauser\App\Util\PgLarauserMigration;
 
-class PgLarauserCreateGroupsTable extends PgLarauserMigration
+class PgLarauserCreateTableUsers extends PgLarauserMigration
 {
     /**
      * Return table name
@@ -12,8 +14,8 @@ class PgLarauserCreateGroupsTable extends PgLarauserMigration
      * @return string
      */
     public static function tableName(){
-        return 'groups';
-    }
+        return 'users';
+    }    
 
     /**
      * Run the migrations.
@@ -24,10 +26,11 @@ class PgLarauserCreateGroupsTable extends PgLarauserMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->string('description')->nullable();
-            $table->integer('profile_id')->index();
-            $table->timestamps();
+            $table->string  ('name');
+            $table->string  ('email')->unique();
+            $table->string('password');
+            $table->string('state');
+            $table->integer('group_id')->index();
         });
         if(self::logEnabled()){
             self::registerForLog();
@@ -45,5 +48,6 @@ class PgLarauserCreateGroupsTable extends PgLarauserMigration
             self::unregisterFromLog();
         }
         Schema::dropIfExists(self::table());
+
     }
 }

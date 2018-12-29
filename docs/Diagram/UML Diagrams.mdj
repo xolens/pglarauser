@@ -1877,7 +1877,7 @@
 											"top": 551,
 											"width": 330.13525390625,
 											"height": 13,
-											"text": "PgLarauserCreateProfilesAccessTable"
+											"text": "PgLarauserCreateTableProfileAccess"
 										},
 										{
 											"_type": "LabelView",
@@ -2229,7 +2229,7 @@
 											"top": 359,
 											"width": 286.06982421875,
 											"height": 13,
-											"text": "PgLarauserCreateProfilesAccessTable"
+											"text": "PgLarauserCreateTableProfileAccess"
 										},
 										{
 											"_type": "LabelView",
@@ -2405,7 +2405,7 @@
 											"top": 719,
 											"width": 288.0439453125,
 											"height": 13,
-											"text": "PgLarauserCreateProfilesTable"
+											"text": "PgLarauserCreateTableProfiles"
 										},
 										{
 											"_type": "LabelView",
@@ -5310,7 +5310,7 @@
 											"top": 100,
 											"width": 246.98095703125,
 											"height": 13,
-											"text": "-connexionAt: DateTime*",
+											"text": "-connexionAt: timestamp*",
 											"horizontalAlignment": 0
 										},
 										{
@@ -5607,7 +5607,7 @@
 											"top": 123,
 											"width": 165.21044921875,
 											"height": 13,
-											"text": "-expireAt: DateTime*",
+											"text": "-expireAt: timestamp*",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6608,7 +6608,7 @@
 											"top": 276,
 											"width": 245.00048828125,
 											"height": 13,
-											"text": "-descrition:  string",
+											"text": "-description: string",
 											"horizontalAlignment": 0
 										},
 										{
@@ -13783,7 +13783,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "PgLarauserCreateProfilesAccessTable",
+					"name": "PgLarauserCreateTableProfileAccess",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -13829,7 +13829,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "PgLarauserCreateProfilesAccessTable",
+					"name": "PgLarauserCreateTableProfileAccess",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -13852,7 +13852,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "PgLarauserCreateProfilesTable",
+					"name": "PgLarauserCreateTableProfiles",
 					"ownedElements": [
 						{
 							"_type": "UMLGeneralization",
@@ -14074,7 +14074,7 @@
 							},
 							"name": "connexionAt",
 							"visibility": "private",
-							"type": "DateTime*"
+							"type": "timestamp*"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -14154,7 +14154,7 @@
 							},
 							"name": "expireAt",
 							"visibility": "private",
-							"type": "DateTime*"
+							"type": "timestamp*"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -15178,9 +15178,9 @@
 							"_parent": {
 								"$ref": "AAAAAAFlo83AAslTsqs="
 							},
-							"name": "descrition",
+							"name": "description",
 							"visibility": "private",
-							"type": " string"
+							"type": "string"
 						},
 						{
 							"_type": "UMLAttribute",

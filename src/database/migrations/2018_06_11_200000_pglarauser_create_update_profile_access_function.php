@@ -69,9 +69,9 @@ class PgLarauserCreateUpdateProfileAccessFunction extends PgLarauserMigration
                 BEGIN
 
                     FOR temprow IN
-                        SELECT * FROM ".PgLarauserCreateAccessTable::table()." WHERE code like $2
+                        SELECT * FROM ".PgLarauserCreateTableAccess::table()." WHERE code like $2
                     LOOP
-                        UPDATE ".PgLarauserCreateProfilesAccessTable::table()." SET 
+                        UPDATE ".PgLarauserCreateTableProfileAccess::table()." SET 
                             can_read= $3 AND temprow.readable,
                             can_update= $4 AND temprow.updatable,
                             can_delete= $5 AND temprow.deletable,

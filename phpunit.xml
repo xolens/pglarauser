@@ -17,17 +17,22 @@
             <file>src/Xolens/PgLarauser/Test/CleanSchemaTest.php</file>
         </testsuite> 
         <testsuite name="test-package">
-            <file>src/Xolens/PgLarauser/Test/Repository/ProfileRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/AccessRepositoryTest.php</file>
-            <file>src/Xolens/PgLarauser/Test/Repository/ProfileAccessRepositoryTest.php</file>
-            <file>src/Xolens/PgLarauser/Test/Repository/ProfileAccessViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/ProfileRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/GroupRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/ProfileAccessRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/UserRepositoryTest.php</file>
-            
-        </testsuite>
-        <testsuite name="test-user-logging">
-            <file>src/Xolens/PgLarauser/Test/Repository/PasswordResetRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/LoginHistoryRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/PasswordResetRepositoryTest.php</file>
         </testsuite>
+        <testsuite name="test-packageview">
+            <file>src/Xolens/PgLarauser/Test/Repository/View/AccessViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/View/ProfileViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/View/GroupViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/View/ProfileAccessViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/View/UserViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/View/LoginHistoryViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/View/PasswordResetViewRepositoryTest.php</file>
+        </testsuite> 
     </testsuites>
 </phpunit>

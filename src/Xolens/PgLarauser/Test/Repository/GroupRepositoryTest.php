@@ -2,14 +2,13 @@
 
 namespace Xolens\PgLarauser\Test\Repository;
 
-use PHPUnit\Framework\TestCase;
 use Xolens\PgLarauser\App\Repository\GroupRepository;
 use Xolens\PgLarauser\App\Repository\ProfileRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLarauser\Test\TestPgLarauserBase;
+use Xolens\PgLarauser\Test\WritableTestPgLarauserBase;
 
-final class GroupRepositoryTest extends TestPgLarauserBase
+final class GroupRepositoryTest extends WritableTestPgLarauserBase
 {
     protected $profileRepo;
     /**
@@ -28,10 +27,11 @@ final class GroupRepositoryTest extends TestPgLarauserBase
      */
     public function test_make(){
         $i = rand(0, 10000);
+        $profileId = $this->profileRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
-            "name"=> "name".$i,
-            "description"=> "description".$i,
-            "profile_id"=> $i,
+            'name' => 'name'.$i,
+            'description' => 'description'.$i,
+            'profile_id' => $profileId,
         ]);
         $this->assertTrue(true);
     }
@@ -40,15 +40,13 @@ final class GroupRepositoryTest extends TestPgLarauserBase
 
     public function generateSorter(){
         $sorter = new Sorter();
-        $sorter->asc('name')
-                ->asc('description');
+        $sorter->asc('id');
         return $sorter;
     }
 
     public function generateFilterer(){
         $filterer = new Filterer();
-        $filterer->between('id',[0,14])
-                ->like('name','%tab%');
+        $filterer->between('id',[0,14]);
         return $filterer;
     }
 
@@ -59,13 +57,14 @@ final class GroupRepositoryTest extends TestPgLarauserBase
         for($i=$count; $i<($toGenerateCount+$count); $i++){
             $profileId = $this->profileRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
-                "profile_id"=> $profileId,
-                "name"=> "name".$i,
-                "description"=> "description".$i,
+                'name' => 'name'.$i,
+                'description' => 'description'.$i,
+                'profile_id' => $profileId,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }
         $this->assertEquals(count($generatedItemsId), $toGenerateCount);
         return $generatedItemsId;
     }
-}
+}   
+

@@ -1,16 +1,26 @@
 <?php
 
 namespace Xolens\PgLarauser\App\Model;
-
 use Illuminate\Database\Eloquent\Model;
 
-use PgLarauserCreateLoginHistoryTable;
-use Xolens\LarauserContract\Model\LoginHistoryContract;
+use PgLarauserCreateTableLoginHistorys;
 
-class LoginHistory extends Model 
+
+class LoginHistory extends Model
 {
     public const USER_PROPERTY = 'user_id';
+
     public $timestamps = false;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'id', 'client_ip', 'connexion_at', 'http_user_agent', 'type', 'user_id', 
+    ];
+
     /**
      * The table associated with the model.
      *
@@ -19,34 +29,11 @@ class LoginHistory extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLarauserCreateLoginHistoryTable::table();
+        $this->table = PgLarauserCreateTableLoginHistorys::table();
         parent::__construct($attributes);
     }
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'id','client_ip', 'login_at', 'http_user_agent','user_id'
-    ];
-
-    public function user()
-    {
-        return $this->belongsTo('PgLarauser\App\Model\User','user_id');
+    public function user(){
+        return $this->belongsTo('Xolens\PgLarauser\App\Model\User','user_id');
     } 
-
-    public function getId(){
-        return $this->id;
-    }
-    
-    public function getConnexionAt(){
-        return $this->login_at;
-    }
-    
-    public function setConnexionAt($date){
-        $this->login_at = $date;
-    }
-
 }

@@ -2,8 +2,7 @@
 
 namespace Xolens\PgLarauser\Test;
 
-use \Orchestra\Testbench\TestCase;
-use Xolens\PgLarautil\Test\RepositoryTrait\Xolens\PgLarautil\Test\RepositoryTrait;
+use Xolens\PgLarautil\Test\TestCase;
 use Xolens\PgLarautil\Test\RepositoryTrait\ReadOnlyRepositoryTestTrait;
 
 abstract class ReadOnlyTestPgLarauserBase extends TestCase

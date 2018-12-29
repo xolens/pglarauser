@@ -2,16 +2,14 @@
 
 namespace Xolens\PgLarauser\Test\Repository;
 
-use PHPUnit\Framework\TestCase;
 use Xolens\PgLarauser\App\Repository\PasswordResetRepository;
-use Xolens\PgLarauser\App\Repository\UserRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLarauser\Test\TestPgLarauserBase;
+use Xolens\PgLarauser\Test\WritableTestPgLarauserBase;
+use Carbon\Carbon;
 
-final class PasswordResetRepositoryTest extends TestPgLarauserBase
+final class PasswordResetRepositoryTest extends WritableTestPgLarauserBase
 {
-    protected $userRepo;
     /**
      * Setup the test environment.
      */
@@ -19,7 +17,6 @@ final class PasswordResetRepositoryTest extends TestPgLarauserBase
         parent::setUp();
         $this->artisan('migrate');
         $repo = new PasswordResetRepository();
-        $this->userRepo = new UserRepository();
         $this->repo = $repo;
     }
 
@@ -29,9 +26,10 @@ final class PasswordResetRepositoryTest extends TestPgLarauserBase
     public function test_make(){
         $i = rand(0, 10000);
         $item = $this->repository()->make([
-            "email"=> "email".$i,
-            "secret"=> "secret".$i,
-            "user_id"=> $i,
+            'email' => 'email'.$i,
+            'secret' => 'secret'.$i,
+            'expire_at' => Carbon::now()->toDateTimeString(),
+            'success' => 'success'.$i,
         ]);
         $this->assertTrue(true);
     }
@@ -40,15 +38,13 @@ final class PasswordResetRepositoryTest extends TestPgLarauserBase
 
     public function generateSorter(){
         $sorter = new Sorter();
-        $sorter->asc('email')
-                ->asc('secret');
+        $sorter->asc('id');
         return $sorter;
     }
 
     public function generateFilterer(){
         $filterer = new Filterer();
-        $filterer->between('id',[0,14])
-                ->like('email','%tab%');
+        $filterer->between('id',[0,14]);
         return $filterer;
     }
 
@@ -57,15 +53,16 @@ final class PasswordResetRepositoryTest extends TestPgLarauserBase
         $generatedItemsId = [];
         
         for($i=$count; $i<($toGenerateCount+$count); $i++){
-            $userId = $this->userRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
-                "user_id"=> $userId,
-                "email"=> "email".$i,
-                "secret"=> "secret".$i,
+                'email' => 'email'.$i,
+                'secret' => 'secret'.$i,
+                'expire_at' => Carbon::now()->toDateTimeString(),
+                'success' => $i%2==0,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }
         $this->assertEquals(count($generatedItemsId), $toGenerateCount);
         return $generatedItemsId;
     }
-}
+}   
+

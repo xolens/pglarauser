@@ -2,14 +2,14 @@
 
 namespace Xolens\PgLarauser\Test\Repository;
 
-use PHPUnit\Framework\TestCase;
 use Xolens\PgLarauser\App\Repository\LoginHistoryRepository;
 use Xolens\PgLarauser\App\Repository\UserRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLarauser\Test\TestPgLarauserBase;
+use Xolens\PgLarauser\Test\WritableTestPgLarauserBase;
+use Carbon\Carbon;
 
-final class LoginHistoryRepositoryTest extends TestPgLarauserBase
+final class LoginHistoryRepositoryTest extends WritableTestPgLarauserBase
 {
     protected $userRepo;
     /**
@@ -28,10 +28,13 @@ final class LoginHistoryRepositoryTest extends TestPgLarauserBase
      */
     public function test_make(){
         $i = rand(0, 10000);
+        $userId = $this->userRepo->model()::inRandomOrder()->first()->id;
         $item = $this->repository()->make([
-            "client_ip"=> "client_ip".$i,
-            "http_user_agent"=> "http_user_agent".$i,
-            "user_id"=> $i,
+            'client_ip' => 'clientIp'.$i,
+            'connexion_at' => Carbon::now()->toDateTimeString(),
+            'http_user_agent' => 'httpUserAgent'.$i,
+            'type' => 'type'.$i,
+            'user_id' => $userId,
         ]);
         $this->assertTrue(true);
     }
@@ -40,15 +43,13 @@ final class LoginHistoryRepositoryTest extends TestPgLarauserBase
 
     public function generateSorter(){
         $sorter = new Sorter();
-        $sorter->asc('client_ip')
-                ->asc('http_user_agent');
+        $sorter->asc('id');
         return $sorter;
     }
 
     public function generateFilterer(){
         $filterer = new Filterer();
-        $filterer->between('id',[0,14])
-                ->like('client_ip','%tab%');
+        $filterer->between('id',[0,14]);
         return $filterer;
     }
 
@@ -59,13 +60,16 @@ final class LoginHistoryRepositoryTest extends TestPgLarauserBase
         for($i=$count; $i<($toGenerateCount+$count); $i++){
             $userId = $this->userRepo->model()::inRandomOrder()->first()->id;
             $item = $this->repository()->create([
-                "user_id"=> $userId,
-                "client_ip"=> "client_ip".$i,
-                "http_user_agent"=> "http_user_agent".$i,
+                'client_ip' => 'clientIp'.$i,
+                'connexion_at' => Carbon::now()->toDateTimeString(),
+                'http_user_agent' => 'httpUserAgent'.$i,
+                'type' => 'type'.$i,
+                'user_id' => $userId,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }
         $this->assertEquals(count($generatedItemsId), $toGenerateCount);
         return $generatedItemsId;
     }
-}
+}   
+

@@ -1,10 +1,8 @@
 <?php
 
-namespace Xolens\PgLarauser\Test\Repository;
+namespace Xolens\PgLarauser\Test\Repository\View;
 
-use PHPUnit\Framework\TestCase;
-use Xolens\PgLarauser\App\Repository\ProfileAccessViewRepository;
-
+use Xolens\PgLarauser\App\Repository\View\ProfileAccessViewRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
 use Xolens\PgLarauser\Test\ReadOnlyTestPgLarauserBase;
@@ -21,19 +19,18 @@ final class ProfileAccessViewRepositoryTest extends ReadOnlyTestPgLarauserBase
         $this->repo = $repo;
     }
 
-    /** HELPERS FUNCTIONS --------------------------------------------- **/
-
     public function generateSorter(){
         $sorter = new Sorter();
-        $sorter->asc('profile_id')
-                ->asc('access_id');
+        $sorter->asc('id');
+                //->asc('name');
         return $sorter;
     }
 
     public function generateFilterer(){
         $filterer = new Filterer();
-        $filterer->between('id',[0,14])
-                ->greater('profile_id',0);
+        $filterer->between('id',[0,14]);
+                //->like('name','%tab%');
         return $filterer;
     }
 }
+

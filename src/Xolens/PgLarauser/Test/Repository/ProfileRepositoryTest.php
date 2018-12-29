@@ -5,11 +5,11 @@ namespace Xolens\PgLarauser\Test\Repository;
 use Xolens\PgLarauser\App\Repository\ProfileRepository;
 use Xolens\LarautilContract\App\Util\Model\Sorter;
 use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\PgLarauser\Test\TestPgLarauserBase;
+use Xolens\PgLarauser\Test\WritableTestPgLarauserBase;
 
-final class ProfileRepositoryTest extends TestPgLarauserBase
+final class ProfileRepositoryTest extends WritableTestPgLarauserBase
 {
-   /**
+    /**
      * Setup the test environment.
      */
     protected function setUp(): void{
@@ -25,8 +25,8 @@ final class ProfileRepositoryTest extends TestPgLarauserBase
     public function test_make(){
         $i = rand(0, 10000);
         $item = $this->repository()->make([
-            "name"=> "name".$i,
-            "description"=> "description".$i,
+            'name' => 'name'.$i,
+            'description' => 'description'.$i,
         ]);
         $this->assertTrue(true);
     }
@@ -35,15 +35,13 @@ final class ProfileRepositoryTest extends TestPgLarauserBase
 
     public function generateSorter(){
         $sorter = new Sorter();
-        $sorter->asc('name')
-                ->asc('description');
+        $sorter->asc('id');
         return $sorter;
     }
 
     public function generateFilterer(){
         $filterer = new Filterer();
-        $filterer->between('id',[0,14])
-                ->like('name','%me%');
+        $filterer->between('id',[0,14]);
         return $filterer;
     }
 
@@ -53,12 +51,13 @@ final class ProfileRepositoryTest extends TestPgLarauserBase
         
         for($i=$count; $i<($toGenerateCount+$count); $i++){
             $item = $this->repository()->create([
-                "name"=> "name".$i,
-                "description"=> "description".$i,
+                'name' => 'name'.$i,
+                'description' => 'description'.$i,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }
         $this->assertEquals(count($generatedItemsId), $toGenerateCount);
         return $generatedItemsId;
     }
-}
+}   
+

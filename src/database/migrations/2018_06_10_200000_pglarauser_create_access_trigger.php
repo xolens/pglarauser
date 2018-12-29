@@ -28,7 +28,7 @@ class PgLarauserCreateAccessTrigger extends PgLarauserMigration
             LANGUAGE plpgsql AS $$
                 BEGIN
                     IF TG_OP = 'INSERT' THEN
-                        INSERT INTO ".PgLarauserCreateProfilesAccessTable::table()."(
+                        INSERT INTO ".PgLarauserCreateTableProfileAccess::table()."(
                             can_read,
                             can_update,
                             can_delete,
@@ -48,16 +48,16 @@ class PgLarauserCreateAccessTrigger extends PgLarauserMigration
                             false,
                             false,
                             NEW.id, 
-                            id from ".PgLarauserCreateProfilesTable::table().";
+                            id from ".PgLarauserCreateTableProfiles::table().";
                     ELSEIF TG_OP = 'DELETE' THEN
-                        DELETE FROM ".PgLarauserCreateProfilesAccessTable::table()." WHERE access_id = OLD.id; 
+                        DELETE FROM ".PgLarauserCreateTableProfileAccess::table()." WHERE access_id = OLD.id; 
                         RETURN OLD;
                     END IF;
                     RETURN NEW;
                 END;
             $$;
         
-            CREATE TRIGGER ".self::table()." AFTER INSERT OR UPDATE OR DELETE ON ".PgLarauserCreateAccessTable::table()." FOR EACH ROW
+            CREATE TRIGGER ".self::table()." AFTER INSERT OR UPDATE OR DELETE ON ".PgLarauserCreateTableAccess::table()." FOR EACH ROW
                 EXECUTE PROCEDURE ".$triggerFunction."();
         ");
     }
@@ -68,6 +68,6 @@ class PgLarauserCreateAccessTrigger extends PgLarauserMigration
      * @return void
      */
     public function down(){
-        DB::unprepared("DROP TRIGGER ".self::table()." ON ".PgLarauserCreateAccessTable::table().";");
+        DB::unprepared("DROP TRIGGER ".self::table()." ON ".PgLarauserCreateTableAccess::table().";");
     }
 }

@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+
 use Xolens\PgLarauser\App\Util\PgLarauserMigration;
 
-class PgLarauserCreatePasswordResetsTable extends PgLarauserMigration
+class PgLarauserCreateTablePasswordResets extends PgLarauserMigration
 {
     /**
      * Return table name
@@ -14,7 +16,7 @@ class PgLarauserCreatePasswordResetsTable extends PgLarauserMigration
     public static function tableName(){
         return 'password_resets';
     }    
-    
+
     /**
      * Run the migrations.
      *
@@ -24,11 +26,10 @@ class PgLarauserCreatePasswordResetsTable extends PgLarauserMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email')->index();
+            $table->string('email');
             $table->string('secret');
             $table->timestamp('expire_at');
-            $table->boolean('success')->default(false);
-            $table->integer('user_id')->index();
+            $table->boolean('success');
         });
         if(self::logEnabled()){
             self::registerForLog();
@@ -46,5 +47,6 @@ class PgLarauserCreatePasswordResetsTable extends PgLarauserMigration
             self::unregisterFromLog();
         }
         Schema::dropIfExists(self::table());
+
     }
 }

@@ -28,7 +28,7 @@ class PgLarauserCreateProfilesTrigger extends PgLarauserMigration
             LANGUAGE plpgsql AS $$
                 BEGIN
                     IF TG_OP = 'INSERT' THEN
-                        INSERT INTO ".PgLarauserCreateProfilesAccessTable::table()."(
+                        INSERT INTO ".PgLarauserCreateTableProfileAccess::table()."(
                             can_read,
                             can_update,
                             can_delete,
@@ -39,16 +39,16 @@ class PgLarauserCreateProfilesTrigger extends PgLarauserMigration
                             access_id,
                             profile_id
                         )
-                        SELECT false, false, false, false, false, false, false, id, NEW.id from ".PgLarauserCreateAccessTable::table().";
+                        SELECT false, false, false, false, false, false, false, id, NEW.id from ".PgLarauserCreateTableAccess::table().";
                     ELSEIF TG_OP = 'DELETE' THEN
-                        DELETE FROM ".PgLarauserCreateProfilesAccessTable::table()." WHERE profile_id = OLD.id; 
+                        DELETE FROM ".PgLarauserCreateTableProfileAccess::table()." WHERE profile_id = OLD.id; 
                         RETURN OLD;
                     END IF;
                     RETURN NEW;
                 END;
             $$;
         
-            CREATE TRIGGER ".self::table()." AFTER INSERT OR UPDATE OR DELETE ON ".PgLarauserCreateProfilesTable::table()." FOR EACH ROW
+            CREATE TRIGGER ".self::table()." AFTER INSERT OR UPDATE OR DELETE ON ".PgLarauserCreateTableProfiles::table()." FOR EACH ROW
                 EXECUTE PROCEDURE ".$triggerFunction."();
         ");
     }
@@ -59,6 +59,6 @@ class PgLarauserCreateProfilesTrigger extends PgLarauserMigration
      * @return void
      */
     public function down(){
-        DB::unprepared("DROP TRIGGER ".self::table()." ON ".PgLarauserCreateProfilesTable::table().";");
+        DB::unprepared("DROP TRIGGER ".self::table()." ON ".PgLarauserCreateTableProfiles::table().";");
     }
 }

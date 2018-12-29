@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+
 use Xolens\PgLarauser\App\Util\PgLarauserMigration;
 
-class PgLarauserCreateProfilesAccessTable extends PgLarauserMigration
+class PgLarauserCreateTableLoginHistorys extends PgLarauserMigration
 {
     /**
      * Return table name
@@ -12,8 +14,8 @@ class PgLarauserCreateProfilesAccessTable extends PgLarauserMigration
      * @return string
      */
     public static function tableName(){
-        return 'profiles_access';
-    }
+        return 'login_historys';
+    }    
 
     /**
      * Run the migrations.
@@ -24,17 +26,11 @@ class PgLarauserCreateProfilesAccessTable extends PgLarauserMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->boolean('can_read')->default(false);
-            $table->boolean('can_update')->default(false);
-            $table->boolean('can_delete')->default(false);
-            $table->boolean('can_trash')->default(false);
-            $table->boolean('can_restore')->default(false);
-            $table->boolean('can_import')->default(false);
-            $table->boolean('can_export')->default(false);
-            $table->integer('profile_id')->index();
-            $table->integer('access_id')->index();
-            $table->unique(['profile_id', 'access_id']);
-            $table->timestamps();
+            $table->string('client_ip');
+            $table->timestamp('connexion_at');
+            $table->string('http_user_agent');
+            $table->string ('type');
+            $table->integer('user_id')->index();
         });
         if(self::logEnabled()){
             self::registerForLog();
@@ -52,5 +48,6 @@ class PgLarauserCreateProfilesAccessTable extends PgLarauserMigration
             self::unregisterFromLog();
         }
         Schema::dropIfExists(self::table());
+
     }
 }

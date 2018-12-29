@@ -1,14 +1,14 @@
 <?php
 
-namespace Xolens\PgLarauser\App\Model;
+namespace Xolens\PgLarauser\App\Model\View;
 use Illuminate\Database\Eloquent\Model;
 
-use PgLarauserCreateTableAccess;
+use PgLarauserCreateViewGroup;
 
 
-class Access extends Model
+
+class GroupView extends Model
 {
-
     public $timestamps = false;
 
     /**
@@ -16,9 +16,7 @@ class Access extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'id', 'code', 'name', 'description', 'readable', 'updatable', 'deletable', 'trashable', 'restorable', 'importable', 'exportable', 
-    ];
+    protected $fillable = [];
 
     /**
      * The table associated with the model.
@@ -28,7 +26,8 @@ class Access extends Model
     protected $table;
     
     function __construct(array $attributes = []) {
-        $this->table = PgLarauserCreateTableAccess::table();
+        $this->table = PgLarauserCreateViewGroup::table();
         parent::__construct($attributes);
     }
 }
+

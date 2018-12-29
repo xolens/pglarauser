@@ -2,9 +2,11 @@
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
+
 use Xolens\PgLarauser\App\Util\PgLarauserMigration;
 
-class PgLarauserCreateProfilesTable extends PgLarauserMigration
+class PgLarauserCreateTableAccess extends PgLarauserMigration
 {
     /**
      * Return table name
@@ -12,8 +14,8 @@ class PgLarauserCreateProfilesTable extends PgLarauserMigration
      * @return string
      */
     public static function tableName(){
-        return 'profiles';
-    }
+        return 'access';
+    }    
 
     /**
      * Run the migrations.
@@ -25,8 +27,15 @@ class PgLarauserCreateProfilesTable extends PgLarauserMigration
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('code')->unique();
             $table->string('description')->nullable();
-            $table->timestamps();
+            $table->boolean('readable')->default(false);
+            $table->boolean('updatable')->default(false);
+            $table->boolean('deletable')->default(false);
+            $table->boolean('trashable')->default(false);
+            $table->boolean('restorable')->default(false);
+            $table->boolean('importable')->default(false);
+            $table->boolean('exportable')->default(false);
         });
         if(self::logEnabled()){
             self::registerForLog();
@@ -44,5 +53,6 @@ class PgLarauserCreateProfilesTable extends PgLarauserMigration
             self::unregisterFromLog();
         }
         Schema::dropIfExists(self::table());
+
     }
 }

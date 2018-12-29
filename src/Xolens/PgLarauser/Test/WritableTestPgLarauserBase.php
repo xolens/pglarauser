@@ -3,10 +3,10 @@
 namespace Xolens\PgLarauser\Test;
 
 use Xolens\PgLarautil\Test\TestCase;
-use Xolens\PgLarautil\Test\RepositoryTrait\WritableRepositoryTestTrait;
 use Xolens\PgLarautil\Test\RepositoryTrait\ReadableRepositoryTestTrait;
+use Xolens\PgLarautil\Test\RepositoryTrait\WritableRepositoryTestTrait;
 
-abstract class TestPgLarauserBase extends TestCase
+abstract class WritableTestPgLarauserBase extends TestCase
 {
     use ReadableRepositoryTestTrait, WritableRepositoryTestTrait;
     
@@ -18,7 +18,7 @@ abstract class TestPgLarauserBase extends TestCase
 
     protected function getPackageProviders($app): array{
         return [
-            'Xolens\PgLarauser\PgLarauserServiceProvider'
+            'Xolens\PgLarauser\PgLarauserServiceProvider',
         ];
     }
 
