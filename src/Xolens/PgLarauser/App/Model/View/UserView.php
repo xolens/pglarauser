@@ -18,6 +18,9 @@ class UserView extends Model
      */
     protected $fillable = [];
 
+    protected $hidden = [
+        'password',
+    ];
     /**
      * The table associated with the model.
      *
