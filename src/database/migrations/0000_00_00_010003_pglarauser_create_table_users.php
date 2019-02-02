@@ -26,10 +26,11 @@ class PgLarauserCreateTableUsers extends PgLarauserMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string  ('name');
-            $table->string  ('email')->unique();
+            $table->string('name');
+            $table->string('email')->unique();
             $table->string('password');
             $table->string('state');
+            $table->string('token')->nullable();
             $table->integer('group_id')->index();
         });
         if(self::logEnabled()){

@@ -2,16 +2,19 @@
 
 namespace Xolens\PgLarauser\App\Util;
 
-use Illuminate\Database\Migrations\Migration;
-use Xolens\PgLarautil\App\Util\AbstractPgLarautilMigration;
+use Illuminate\Support\Facades\DB;
 
-abstract class PgLarauserMigration extends AbstractPgLarautilMigration 
+abstract class PgLarauserMigration extends AbstractPgLarauserMigration
 {
     public static function tablePrefix(){
-        return config('xolens-config.pglarauser-database_table_prefix');
+        return config('xolens-pglarauser.pglarauser-database_table_prefix');
+    }
+
+    public static function triggerPrefix(){
+        return config('xolens-pglarauser.pglarauser-database_trigger_prefix');
     }
 
     public static function logEnabled(){
-        return config('xolens-config.pglarauser-enable_database_log');
+        return config('xolens-pglarauser.pglarauser-enable_database_log');
     }
 }

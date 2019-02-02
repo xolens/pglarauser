@@ -5,9 +5,13 @@ use Illuminate\Database\Eloquent\Model;
 
 use PgLarauserCreateTableUsers;
 
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Model
+class User extends Authenticatable
 {
+    use Notifiable;
+    
     public const GROUP_PROPERTY = 'group_id';
 
     public $timestamps = false;

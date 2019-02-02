@@ -4,16 +4,16 @@ namespace Xolens\PgLarauser;
 
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
-use Xolens\PgLarasetting\PgLarasettingServiceProvider;
+use Xolens\PgLarautil\PgLarautilServiceProvider;
 
 class PgLarauserServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->app->register(PgLarasettingServiceProvider::class);
-        
+        $this->app->register(PgLarautilServiceProvider::class);
+
         $this->publishes([
-            __DIR__.'/../../config/xolens-config.php' => config_path('xolens-config.php'),
+            __DIR__.'/../../config/xolens-pglarauser.php' => config_path('xolens-pglarauser.php'),
         ]);
         $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
     }
@@ -21,7 +21,7 @@ class PgLarauserServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__.'/../../config/xolens-config.php', 'xolens-config'
+            __DIR__.'/../../config/xolens-pglarauser.php', 'xolens-pglarauser'
         );
     }
 }

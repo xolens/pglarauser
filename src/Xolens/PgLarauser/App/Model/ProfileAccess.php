@@ -19,7 +19,7 @@ class ProfileAccess extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'profile_id', 'access_id', 'can_read', 'can_update', 'can_delete', 'can_trash', 'can_restore', 'can_import', 'can_export', 
+        'id', 'profile_id', 'access_id', 'can_access', 'can_read', 'can_update', 'can_delete', 'can_trash', 'can_restore', 'can_import', 'can_export', 
     ];
 
     /**
