@@ -17,7 +17,7 @@ class Access extends Model
      * @var array
      */
     protected $fillable = [
-        'id', 'code', 'name', 'description', 'readable', 'updatable', 'deletable', 'trashable', 'restorable', 'importable', 'exportable', 
+        'id', 'base', 'is_public', 'code', 'readable', 'updatable', 'deletable', 'trashable', 'restorable', 'importable', 'exportable', 
     ];
 
     /**

@@ -30,7 +30,8 @@ class PgLarauserCreateTableUsers extends PgLarauserMigration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('state');
-            $table->string('token')->nullable();
+            $table->text('token')->nullable();
+            $table->timestamp('last_request')->nullable();
             $table->integer('group_id')->index();
         });
         if(self::logEnabled()){

@@ -27,9 +27,23 @@ class PgLarauserCreateViewProfileAccess extends PgLarauserMigration
         DB::statement("
             CREATE VIEW ".self::table()." AS(
                 SELECT 
-                    ".$mainTable.".*,
+                    ".$mainTable.".id,
+                    ".$mainTable.".profile_id,
+                    ".$mainTable.".access_id,
+
+                    (".$accessTable.".readable AND ".$mainTable.".can_read) as can_read,
+                    (".$accessTable.".updatable AND ".$mainTable.".can_update) as can_update,
+                    (".$accessTable.".deletable AND ".$mainTable.".can_delete) as can_delete,
+                    (".$accessTable.".trashable AND ".$mainTable.".can_trash) as can_trash,
+                    (".$accessTable.".restorable AND ".$mainTable.".can_restore) as can_restore,
+                    (".$accessTable.".importable AND ".$mainTable.".can_import) as can_import,
+                    (".$accessTable.".exportable AND ".$mainTable.".can_export) as can_export,
+                    
+                    can_read OR can_update OR can_trash OR can_import OR can_export as can_access,
                     ".$accessTable.".code as access_code,
-                    ".$accessTable.".name as access_name,
+                    ".$accessTable.".base as access_base,
+                    ".$accessTable.".is_public as access_is_public,
+
                     ".$accessTable.".readable as access_readable,
                     ".$accessTable.".updatable as access_updatable,
                     ".$accessTable.".deletable as access_deletable,

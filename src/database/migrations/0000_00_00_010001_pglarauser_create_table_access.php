@@ -26,9 +26,9 @@ class PgLarauserCreateTableAccess extends PgLarauserMigration
     {
         Schema::create(self::table(), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('base');
+            $table->boolean('is_public')->default(false);
             $table->string('code')->unique();
-            $table->string('description')->nullable();
             $table->boolean('readable')->default(false);
             $table->boolean('updatable')->default(false);
             $table->boolean('deletable')->default(false);
