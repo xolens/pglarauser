@@ -4,8 +4,8 @@ namespace Xolens\PgLarauser\Test\Repository;
 
 use Xolens\PgLarauser\App\Repository\LoginHistoryRepository;
 use Xolens\PgLarauser\App\Repository\UserRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLarauser\Test\WritableTestPgLarauserBase;
 use Carbon\Carbon;
 

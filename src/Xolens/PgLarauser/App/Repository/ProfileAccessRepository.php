@@ -3,7 +3,6 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\ProfileAccess;
-use Xolens\LarauserContract\App\Contract\Repository\ProfileAccessRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarauserCreateTableProfileAccess;

@@ -3,7 +3,6 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\LoginHistory;
-use Xolens\LarauserContract\App\Contract\Repository\LoginHistoryRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarauserCreateTableLoginHistorys;

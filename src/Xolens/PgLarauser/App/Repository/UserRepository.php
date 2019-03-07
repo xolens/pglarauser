@@ -3,7 +3,6 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\User;
-use Xolens\LarauserContract\App\Contract\Repository\UserRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarauserCreateTableUsers;

@@ -11,10 +11,7 @@
         "orchestra/testbench": "~3.4.0"
     },
     "require": {
-        "xolens/larautil-contract": "dev-master",
         "xolens/pglarautil": "dev-master",
-        "xolens/larauser-contract": "dev-master",
-        "xolens/larasetting-contract": "dev-master",
         "xolens/pglarasetting": "dev-master"
     },
     "repositories": [{

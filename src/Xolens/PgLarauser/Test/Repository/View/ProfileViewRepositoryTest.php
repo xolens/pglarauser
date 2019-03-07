@@ -3,8 +3,8 @@
 namespace Xolens\PgLarauser\Test\Repository\View;
 
 use Xolens\PgLarauser\App\Repository\View\ProfileViewRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLarauser\Test\ReadOnlyTestPgLarauserBase;
 
 final class ProfileViewRepositoryTest extends ReadOnlyTestPgLarauserBase

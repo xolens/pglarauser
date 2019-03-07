@@ -22,6 +22,7 @@
             <file>src/Xolens/PgLarauser/Test/Repository/GroupRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/ProfileAccessRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/UserRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/PublicUserRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/LoginHistoryRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/PasswordResetRepositoryTest.php</file>
         </testsuite>
@@ -31,6 +32,7 @@
             <file>src/Xolens/PgLarauser/Test/Repository/View/GroupViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/View/ProfileAccessViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/View/UserViewRepositoryTest.php</file>
+            <file>src/Xolens/PgLarauser/Test/Repository/View/PublicUserViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/View/LoginHistoryViewRepositoryTest.php</file>
             <file>src/Xolens/PgLarauser/Test/Repository/View/PasswordResetViewRepositoryTest.php</file>
         </testsuite> 

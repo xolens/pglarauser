@@ -3,7 +3,6 @@
 namespace Xolens\PgLarauser\App\Repository;
 
 use Xolens\PgLarauser\App\Model\Group;
-use Xolens\LarauserContract\App\Contract\Repository\GroupRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractWritableRepository;
 use Illuminate\Validation\Rule;
 use PgLarauserCreateTableGroups;

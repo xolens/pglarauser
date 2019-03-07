@@ -2,12 +2,12 @@
 
 namespace Xolens\PgLarauser\Test\Repository\View;
 
-use Xolens\PgLarauser\App\Repository\View\LoginHistoryViewRepository;
+use Xolens\PgLarauser\App\Repository\View\PublicUserViewRepository;
 use Xolens\PgLarautil\App\Util\Model\Sorter;
 use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLarauser\Test\ReadOnlyTestPgLarauserBase;
 
-final class LoginHistoryViewRepositoryTest extends ReadOnlyTestPgLarauserBase
+final class PublicUserViewRepositoryTest extends ReadOnlyTestPgLarauserBase
 {
     /**
      * Setup the test environment.
@@ -15,7 +15,7 @@ final class LoginHistoryViewRepositoryTest extends ReadOnlyTestPgLarauserBase
     protected function setUp(): void{
         parent::setUp();
         $this->artisan('migrate');
-        $repo = new LoginHistoryViewRepository();
+        $repo = new PublicUserViewRepository();
         $this->repo = $repo;
     }
 

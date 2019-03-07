@@ -4,10 +4,9 @@ namespace Xolens\PgLarauser\App\Repository\View;
 
 use Xolens\PgLarauser\App\Model\LoginHistory;
 use Xolens\PgLarauser\App\Model\View\LoginHistoryView;
-use Xolens\LarauserContract\App\Contract\Repository\View\LoginHistoryViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class LoginHistoryViewRepository extends AbstractReadableRepository implements LoginHistoryViewRepositoryContract
 {

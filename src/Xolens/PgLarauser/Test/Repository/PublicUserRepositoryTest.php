@@ -2,12 +2,12 @@
 
 namespace Xolens\PgLarauser\Test\Repository;
 
-use Xolens\PgLarauser\App\Repository\AccessRepository;
+use Xolens\PgLarauser\App\Repository\PublicUserRepository;
 use Xolens\PgLarautil\App\Util\Model\Sorter;
 use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLarauser\Test\WritableTestPgLarauserBase;
 
-final class AccessRepositoryTest extends WritableTestPgLarauserBase
+final class PublicUserRepositoryTest extends WritableTestPgLarauserBase
 {
     /**
      * Setup the test environment.
@@ -15,7 +15,7 @@ final class AccessRepositoryTest extends WritableTestPgLarauserBase
     protected function setUp(): void{
         parent::setUp();
         $this->artisan('migrate');
-        $repo = new AccessRepository();
+        $repo = new PublicUserRepository();
         $this->repo = $repo;
     }
 
@@ -25,17 +25,10 @@ final class AccessRepositoryTest extends WritableTestPgLarauserBase
     public function test_make(){
         $i = rand(0, 10000);
         $item = $this->repository()->make([
-            'code' => 'code'.$i,
-            'base' => 'base'.$i,
-            'name' => 'name'.$i,
-            'description' => 'description'.$i,
-            'readable' => $i%2==0,
-            'updatable' => $i%2==0,
-            'deletable' => $i%2==0,
-            'trashable' => $i%2==0,
-            'restorable' => $i%2==0,
-            'importable' => $i%2==0,
-            'exportable' => $i%2==0,
+            'email' => 'email'.$i,
+            'password' => 'password'.$i,
+            'category' => 'category'.$i,
+            'state' => 'state'.$i,
         ]);
         $this->assertTrue(true);
     }
@@ -60,17 +53,10 @@ final class AccessRepositoryTest extends WritableTestPgLarauserBase
         
         for($i=$count; $i<($toGenerateCount+$count); $i++){
             $item = $this->repository()->create([
-                'code' => 'code'.$i,
-                'name' => 'name'.$i,
-                'base' => 'base'.$i,
-                'description' => 'description'.$i,
-                'readable' => $i%2==0,
-                'updatable' => $i%2==0,
-                'deletable' => $i%2==0,
-                'trashable' => $i%2==0,
-                'restorable' => $i%2==0,
-                'importable' => $i%2==0,
-                'exportable' => $i%2==0,
+                'email' => 'email'.$i,
+                'password' => 'password'.$i,
+                'category' => 'category'.$i,
+                'state' => 'state'.$i,
             ]);
             $generatedItemsId[] = $item->response()->id;
         }

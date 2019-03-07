@@ -5,8 +5,8 @@ namespace Xolens\PgLarauser\Test\Repository;
 use Xolens\PgLarauser\App\Repository\ProfileAccessRepository;
 use Xolens\PgLarauser\App\Repository\ProfileRepository;
 use Xolens\PgLarauser\App\Repository\AccessRepository;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
 use Xolens\PgLarauser\Test\WritableTestPgLarauserBase;
 
 final class ProfileAccessRepositoryTest extends WritableTestPgLarauserBase

@@ -4,10 +4,9 @@ namespace Xolens\PgLarauser\App\Repository\View;
 
 use Xolens\PgLarauser\App\Model\Group;
 use Xolens\PgLarauser\App\Model\View\GroupView;
-use Xolens\LarauserContract\App\Contract\Repository\View\GroupViewRepositoryContract;
 use Xolens\PgLarautil\App\Repository\AbstractReadableRepository;
-use Xolens\LarautilContract\App\Util\Model\Filterer;
-use Xolens\LarautilContract\App\Util\Model\Sorter;
+use Xolens\PgLarautil\App\Util\Model\Filterer;
+use Xolens\PgLarautil\App\Util\Model\Sorter;
 
 class GroupViewRepository extends AbstractReadableRepository implements GroupViewRepositoryContract
 {
