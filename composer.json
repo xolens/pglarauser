@@ -15,8 +15,11 @@
         "xolens/pglarasetting": "dev-master"
     },
     "repositories": [{
-        "type": "path",
-        "url": "/var/www/repositories/xolens.laravel/local/*"
+        "url": "https://github.com/xolens/pglarasetting.git",
+        "type": "git"
+    }, {
+        "url": "https://github.com/xolens/pglarautil.git",
+        "type": "git"
     }],
     "autoload": {
         "classmap": [
